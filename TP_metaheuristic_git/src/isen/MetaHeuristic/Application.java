@@ -16,7 +16,7 @@ public class Application {
 	public static void main( String[] args) {
 		
 		// test de toutes les méthodes de encoding
-		
+		///Commentaire de test de push
 		
 		Encoding enc = new Encoding();
 		
