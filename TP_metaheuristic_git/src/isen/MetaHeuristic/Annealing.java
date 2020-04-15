@@ -154,6 +154,74 @@ public ArrayList<Integer> annealingtsp(int taillevecteur , float To , int [][] m
 		return best_s ;
 		}
 	
+
+
+public ArrayList<Integer> annealingtsp_float(ArrayList<Integer> S , float To , float [][] matrice_distance){
+	
+	float gap;
+	float T= To;
+	float B = (float) 0.9;
+	float fitness_depart;
+	
+	Encoding solution = new Encoding();
+
+	Fitness f = new Fitness();
+	ArrayList<Integer> best_s = (ArrayList<Integer>) S.clone() ;
+	float best_fitness = f.objectivefonction_TSP_float(S, matrice_distance);
+	fitness_depart =  f.objectivefonction_TSP_float(S, matrice_distance);
+
+	int nb_voisin = solution.permutationneighborhood(S).size() ;
+	int alea = (int) (Math.random()* ( nb_voisin));
+	ArrayList<Integer> s_bis = new ArrayList<Integer>();
+
+	while (T > 1) {	
+		
+		alea = (int) (Math.random()* ( nb_voisin));
+	    s_bis = solution.permutationneighborhood(S).get(alea);
+		
+		for (int k=0 ; k< 30 ; k++) {
+		System.out.println(S);
+		gap = f.objectivefonction_TSP_float(s_bis, matrice_distance) - f.objectivefonction_TSP_float(S, matrice_distance);
+		System.out.println( gap);
+		if(best_fitness > f.objectivefonction_TSP_float(s_bis,matrice_distance)) {
+			best_s = (ArrayList<Integer>) s_bis.clone();
+			best_fitness = f.objectivefonction_TSP_float(s_bis,matrice_distance);
+			System.out.println(best_s + "  temps de parcours    "+best_fitness);
+			S= (ArrayList<Integer>) s_bis.clone();
+			alea = (int) (Math.random()* ( nb_voisin));
+		    s_bis = solution.permutationneighborhood(S).get(alea);
+			
+		}
+
+		else {
+			float alea2 = (float)Math.random();
+			//System.out.println(alea2);
+			if ( (Math.exp( (-gap  ) / T ) ==1)||(alea2 <= Math.exp( (-gap  ) / T ) )) {
+				
+				S= (ArrayList<Integer>) s_bis.clone();
+				System.out.println("on accepte la proba");
+				alea = (int) (Math.random()* ( nb_voisin));
+				s_bis = solution.permutationneighborhood(S).get(alea);
+			}
+
+			
+		}
+		alea = (int) (Math.random()* ( nb_voisin));
+		s_bis = solution.permutationneighborhood(S).get(alea);
+		}
+
+			T= geometric(T, B);
+
+	}
+	
+	System.out.println(best_s + "  temps de parcours    "+best_fitness);
+	System.out.println("fitness de depart   "+ fitness_depart );
+	
+	return best_s ;
+	}
+
+
+
 	}
 
 		
