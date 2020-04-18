@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import isen.Utils.BingMapAPI;
+import isen.Utils.MatrixLoader;
+import javafx.util.Pair;
+
 /**
  * @author Alexandre
  *
@@ -94,6 +98,31 @@ public class Application {
 	      test.annealingtsp_float(s, 100, matrice2);
 	      
 	      System.out.println("local search "+masolu );
-	      System.out.println("fitness associee   "+obj.objectivefonction_TSP_float(masolu, matrice2));
+	      //System.out.println("fitness associee   "+obj.objectivefonction_TSP_float(masolu, matrice2));
+	
+	      ArrayList<String> coordinates = new ArrayList<>();
+	      coordinates.add("50.634483,3.048296");
+	      coordinates.add("50.631694,3.042437");
+	      coordinates.add("50.631029,3.043061");
+	      coordinates.add("50.6318837,3.0396486");
+	      coordinates.add("50.635309,3.046764");
+	      coordinates.add("50.635433,3.047143");
+	      coordinates.add("50.6351554,3.0465156");
+	      
+	      ///Example of utilization of the MatrixLoader class.
+	      //Pair<float[][], float[][]> matrixes = MatrixLoader.getMatrixesFromAPI(coordinates, true);
+	      //float[][] matrix = matrixes.getKey();
+	      //MatrixLoader.SaveInformationForMatrixCreation(coordinates, matrix, "testMatrix");
+	      
+	      
+	      //Load from the data/testMatrix.csv file
+	      float[][] matrix = MatrixLoader.LoadMatrixInformation("testMatrix");
+	      
+	      ArrayList<Integer> stationIndexes = AlgoKMedoid.execute(matrix, 2);
+
+	      System.out.println("\n\nStations found from the k-medoid algorithm : ");
+	      
+	      for(int i = 0; i < stationIndexes.size(); i++)
+	    	 System.out.println("Station index number " + Integer.toString(i) + " : " + Integer.toString(stationIndexes.get(i)));
 	}
 }
