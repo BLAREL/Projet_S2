@@ -31,7 +31,7 @@ public class BingMapAPI {
 	 */
 	
 	public static String key = "";
-	
+			
 	
 	/**
 	 * Sends an http request to the Bing Maps API and return its XML answer.

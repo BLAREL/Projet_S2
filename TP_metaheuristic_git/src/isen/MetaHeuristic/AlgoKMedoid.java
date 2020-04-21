@@ -13,7 +13,7 @@ public class AlgoKMedoid {
 	 * @param k			The number of stations.
 	 * @return			A index list of the k stations chosen.
 	 */
-	public static ArrayList<Integer> execute(float[][] matrix, int k)
+	public static ArrayList<Integer> execute(double[][] matrix, int k)
 	{
 		ArrayList<Integer> stationIndex = new ArrayList<>();
 		ArrayList<Integer> associatedStations = new ArrayList<>();
@@ -37,9 +37,9 @@ public class AlgoKMedoid {
 		{
 			isConfigurationCostDecrises = false;
 			
-			float configurationCost = calculateConfigurationCost(matrix, associatedStations);
+			double configurationCost = calculateConfigurationCost(matrix, associatedStations);
 			
-			Pair<Integer, Float> betterConfigurationCost = null;
+			Pair<Integer, Double> betterConfigurationCost = null;
 			
 			for(int i = 0; i < matrix.length; i++)
 			{
@@ -48,7 +48,7 @@ public class AlgoKMedoid {
 				{
 					ArrayList<Integer> tempAssociatedStations = new ArrayList<>(associatedStations);
 					Collections.replaceAll(tempAssociatedStations, associatedStations.get(i), i);
-					float alternativeConfigCost = calculateConfigurationCost(matrix, tempAssociatedStations);
+					double alternativeConfigCost = calculateConfigurationCost(matrix, tempAssociatedStations);
 					if(alternativeConfigCost < configurationCost)
 					{
 						isConfigurationCostDecrises = true;
@@ -83,7 +83,7 @@ public class AlgoKMedoid {
 	 * @return
 	 */
 	
-	private static int getClosestCenter(float[][] matrix, int startIndex, ArrayList<Integer> stationIndex)
+	private static int getClosestCenter(double[][] matrix, int startIndex, ArrayList<Integer> stationIndex)
 	{
 		int indexOfMinimum = stationIndex.get(0);
 		for(int j = 0; j < stationIndex.size(); j++)
@@ -93,15 +93,16 @@ public class AlgoKMedoid {
 		}
 		return indexOfMinimum;
 	}
+	
 	/**
 	 * This function simply calculate the cumulative distance between each address and its current associated station.
 	 * @param matrix				The distance matrix used.
 	 * @param associatedStations	Each number is itself an index of the address chosen as the nearest station from the address associated to the index of that number.
 	 * @return						The cumulative distance calculated.
 	 */
-	private static float calculateConfigurationCost(float[][] matrix, ArrayList<Integer> associatedStations)
+	private static double calculateConfigurationCost(double[][] matrix, ArrayList<Integer> associatedStations)
 	{
-		float configurationCost = 0.0f;
+		double configurationCost = 0.0f;
 		
 		for(int i = 0; i < matrix.length; i++)
 			configurationCost += matrix[i][associatedStations.get(i)];
