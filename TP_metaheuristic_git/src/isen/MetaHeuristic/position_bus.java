@@ -2,7 +2,7 @@ package isen.MetaHeuristic;
 
 import java.util.ArrayList;
 
-public class Position_bus {
+public class position_bus {
 	
 
 	
