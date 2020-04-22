@@ -23,7 +23,7 @@ public class AlgoKMeans {
 	{
 		samples =new double[_nb][_dim];
 		for(int i=0; i<_nb; i++)
-			Arrays.setAll(samples[i], j-> Math.random()*20);
+			Arrays.setAll(samples[i], j-> Math.random()*100);
 	}
 
 	/**initialise de Data list, normalize them, and create the clusters

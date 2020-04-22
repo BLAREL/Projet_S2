@@ -1,18 +1,8 @@
-/**
- * 
- */
 package isen.MetaHeuristic;
 
 import java.util.ArrayList;
 
-/**
- * @author Alexandre
- * 
- * 
- *on suppose ici que l'on a dix stztions pour 1 bus
- */
-public class position_bus {
-	
+public class Position_bus {
 	
 
 	
@@ -37,5 +27,5 @@ public class position_bus {
   return newArr;
 
 	}
-	
+
 }

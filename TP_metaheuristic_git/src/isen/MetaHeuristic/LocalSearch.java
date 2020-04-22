@@ -19,7 +19,7 @@ public class LocalSearch {
 
 	
 		public ArrayList<Integer> selection_best(List <ArrayList<Integer>>L ) {
-			Fitness f = new Fitness();
+			Fitnes f = new Fitnes();
 			
 			int max = f.objectivefunction_equation(L.get(0));
 			int index=0;
@@ -40,7 +40,7 @@ public class LocalSearch {
 		Encoding solution = new Encoding();
 		solution.binaryencoding(sol_size);
 
-		Fitness f = new Fitness();
+		Fitnes f = new Fitnes();
 		
 		ArrayList<Integer> s = solution.binaryencoding(sol_size);
 		int max = f.objectivefunction_equation(s);
@@ -81,7 +81,7 @@ public class LocalSearch {
 	
 	
 	public ArrayList<Integer> selection_parcours_best(List <ArrayList<Integer>>L , int matrice_distance[][]) {
-		Fitness f = new Fitness();
+		Fitnes f = new Fitnes();
 		
 		int min = f.objectivefonction_TSP( L.get(0), matrice_distance);
 		int index=0;
@@ -102,7 +102,7 @@ public class LocalSearch {
 		
 		Encoding solution = new Encoding();
 
-		Fitness f = new Fitness();
+		Fitnes f = new Fitnes();
 		
 		ArrayList<Integer> s = solution.permutationencoding(sol_size);
 		int min = f.objectivefonction_TSP(s, matrice_distance);
@@ -142,7 +142,7 @@ public class LocalSearch {
 	
 	
 	public ArrayList<Integer> selection_parcours_best(List <ArrayList<Integer>>L , float matrice_distance[][]) {
-		Fitness f = new Fitness();
+		Fitnes f = new Fitnes();
 		
 		float min = f.objectivefonction_TSP_float( L.get(0), matrice_distance);
 		int index=0;
@@ -163,7 +163,7 @@ public class LocalSearch {
 		
 		Encoding solution = new Encoding();
 
-		Fitness f = new Fitness();
+		Fitnes f = new Fitnes();
 		
 		ArrayList<Integer> s = solution.permutationencoding(sol_size);
 		float min = f.objectivefonction_TSP_float(s, matrice_distance);

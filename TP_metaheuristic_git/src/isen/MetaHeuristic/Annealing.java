@@ -54,7 +54,7 @@ public class Annealing {
 		int gap;
 		float T= To;
 		float B = 9;
-		Fitness f = new Fitness();
+		Fitnes f = new Fitnes();
 		Encoding solution = new Encoding();
 		ArrayList<Integer> s = solution.binaryencoding(taillevecteur);
 		
@@ -109,7 +109,7 @@ public ArrayList<Integer> annealingtsp(int taillevecteur , float To , int [][] m
 		
 		Encoding solution = new Encoding();
 		ArrayList<Integer> s = solution.permutationencoding(taillevecteur);
-		Fitness f = new Fitness();
+		Fitnes f = new Fitnes();
 		ArrayList<Integer> best_s = (ArrayList<Integer>) s.clone() ;
 		int best_fitness = f.objectivefonction_TSP(s, matrice_distance);
 
@@ -165,7 +165,7 @@ public ArrayList<Integer> annealingtsp_float(ArrayList<Integer> S , float To , f
 	
 	Encoding solution = new Encoding();
 
-	Fitness f = new Fitness();
+	Fitnes f = new Fitnes();
 	ArrayList<Integer> best_s = (ArrayList<Integer>) S.clone() ;
 	float best_fitness = f.objectivefonction_TSP_float(S, matrice_distance);
 	fitness_depart =  f.objectivefonction_TSP_float(S, matrice_distance);

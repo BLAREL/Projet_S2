@@ -25,7 +25,7 @@ public class Tabu {
 		int resultat_objective  ;
 		
 		Encoding enc = new Encoding ();
-		Fitness fit = new Fitness ();
+		Fitnes fit = new Fitnes ();
 		LocalSearch meilleur_voisin = new LocalSearch();
 		
 		resultat_objective = fit.objectivefunction_equation( s );

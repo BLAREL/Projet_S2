@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author Alexandre
  *
  */
-public class Fitness {
+public class Fitnes {
 
 
 	public int objectivefunction_equation(ArrayList<Integer>solution){

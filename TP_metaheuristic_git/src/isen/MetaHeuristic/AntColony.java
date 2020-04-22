@@ -34,7 +34,7 @@ public class AntColony {
 	public ArrayList<Integer> antcolony ( float T [][], float a , float b , int size, int matrice_des_distances [][], float ro, int generation) {
 		
 		Encoding codage = new Encoding();
-		Fitness f = new Fitness();
+		Fitnes f = new Fitnes();
 		ArrayList<Integer> solution = new ArrayList<Integer>();
 		ArrayList<Integer> vecteur1 = new ArrayList<Integer>();
 		ArrayList<Integer> bestsolution = new ArrayList<Integer>();
